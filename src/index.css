@@ -1,0 +1,216 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    /* Brand */
+    --brand: #7c5dfa;
+    --brand-hover: #9277ff;
+
+    /* Text */
+    --text-primary: #0c0e16;
+    --text-secondary: #7e88c3;
+    --text-muted: #7e88c3;
+    --text-subtle: #888eb0;
+
+    /* Backgrounds */
+    --bg-app: #f8f8fb;
+    --bg-header: #373b53;
+    --bg-surface: #ffffff;
+    --bg-dropdown: #ffffff;
+    --bg-form: #ffffff;
+
+    /* Status */
+    --success: #33d69f;
+    --warning: #ff8f00;
+    --danger: #ec5757;
+    --danger-hover: #ff9797;
+    --neutral: #373b53;
+    --neutral-hover: #0c0e16;
+    --ghost: #f9fafe;
+    --ghost-hover: #dfe3fa;
+    --ghost-text-hover: #7e88c3;
+    --inverted: #373b53;
+
+    /* Inputs */
+    --input-border: #dfe3fa;
+    --input-opt-btm: #dfe3fa;
+    --input-radio-bg: #dfe3fa;
+
+    /* Shadows */
+    --surface-box-shadow: 0px 10px 10px -10px #48549f1a;
+    --dropdown-box-shadow: 0 10px 20px 0 #48549f40;
+  }
+  .dark {
+    /* Brand */
+    --brand: #7c5dfa;
+    --brand-hover: #9277ff;
+
+    /* Text */
+    --text-primary: #ffffff;
+    --text-secondary: #dfe3fa;
+    --text-muted: #888eb0;
+    --text-subtle: #dfe3fa;
+
+    /* Backgrounds */
+    --bg-app: #141625;
+    --bg-dropdown: #252945;
+    --bg-header: #1e2139;
+    --bg-surface: #1e2139;
+    --bg-form: #141625;
+
+    /* Status */
+    --success: #33d69f;
+    --warning: #ff8f00;
+    --danger: #ec5757;
+    --danger-hover: #ff9797;
+    --inverted: #dfe3fa;
+
+    /* Actions */
+    --neutral: #373b53;
+    --neutral-hover: #1e2139;
+    --ghost: #252945;
+    --ghost-hover: #f9fafe;
+    --ghost-text-hover: #7e88c3;
+
+    /* Inputs */
+    --input-border: #252945;
+    --input-opt-btm: #1e2139;
+    --input-radio-bg: #1e2139;
+
+    /* Shadows */
+    --surface-box-shadow: 0px 10px 10px -10px #48549f1a;
+    --dropdown-box-shadow: 0 10px 20px 0 #00000040;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    font-family: "League Spartan", sans-serif;
+    background-color: var(--bg-app);
+  }
+
+  th,
+  td {
+    font-weight: unset;
+    padding-block: 1rem;
+  }
+}
+
+@theme {
+  /* Brand */
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+
+  /* Backgrounds */
+  --color-app: var(--bg-app);
+  --color-header: var(--bg-header);
+  --color-form: var(--bg-form);
+  --color-surface: var(--bg-surface);
+  --color-dropdown-menu: var(--bg-dropdown);
+  --color-backdrop: #00000080;
+
+  /* Text */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-subtle: var(--text-subtle);
+
+  /* Status */
+  --color-status-paid: var(--success);
+  --color-status-pending: var(--warning);
+  --color-status-draft: var(--inverted);
+
+  /* Actions */
+  --color-danger: var(--danger);
+  --color-danger-hover: var(--danger-hover);
+  --color-neutral: var(--neutral);
+  --color-neutral-hover: var(--neutral-hover);
+  --color-ghost: var(--ghost);
+  --color-ghost-hover: var(--ghost-hover);
+  --color-ghost-text-hover: var(--ghost-text-hover);
+
+  /* Borders / Inputs */
+  --color-input-border: var(--input-border);
+  --color-input-focus: var(--color-brand);
+  --color-opt-bottom: var(--input-opt-btm);
+  --color-radio-bg: var(--input-radio-bg);
+  --color-surface-border: var(--brand);
+
+  /* Radius */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+
+  /* Shadows */
+  --shadow-surface: var(--surface-box-shadow);
+  --shadow-dropdown: var(--dropdown-box-shadow);
+}
+
+@layer utilities {
+  .text-heading {
+    font-size: clamp(24px, 20.7458px + 1.0169vw, 36px);
+    letter-spacing: -0.75px;
+    @apply font-bold;
+  }
+
+  .text-body {
+    font-size: clamp(13px, 11.6441px + 0.6237vw, 15px);
+    letter-spacing: -0.1px;
+    font-weight: 500;
+  }
+
+  .text-body-bold {
+    font-size: clamp(15px, 13.1017px + 0.5932vw, 18px);
+    font-weight: bold;
+    letter-spacing: -0.25px;
+  }
+
+  .text-field-error {
+    font-size: clamp(10px, 11.6441px + 0.6237vw, 13px);
+    font-weight: 600;
+    line-height: 15px;
+    letter-spacing: -0.21px;
+  }
+}
+
+@layer components {
+  .logo-brand-shape {
+    @apply relative flex justify-center items-center px-5.5 py-5.75;
+  }
+  .logo-brand-shape::before {
+    @apply content-[""] w-full h-full absolute top-0 left-0 bg-brand rounded-tr-lg rounded-br-lg;
+  }
+  .logo-brand-shape::after {
+    @apply content-[""] w-full h-[50%] absolute bottom-0 left-0 bg-brand-hover rounded-tl-lg rounded-br-lg;
+  }
+  .custom-select,
+  .custom-select::picker(select) {
+    appearance: base-select;
+    @apply transition-all duration-300 text-text-primary bg-surface cursor-pointer border-2 border-input-border;
+  }
+  .custom-select:open {
+    @apply border-2 border-brand;
+  }
+  .custom-select:open::picker(select) {
+    @apply border-0 mt-2 rounded-md bg-dropdown-menu shadow-dropdown;
+  }
+  .custom-select::picker-icon {
+    content: url("/src/assets/icons/arrow-down-icon.svg");
+    @apply transition-[rotate] duration-400;
+  }
+  .custom-select:open::picker-icon {
+    @apply rotate-180;
+  }
+  .custom-select option::checkmark {
+    display: none;
+  }
+}
