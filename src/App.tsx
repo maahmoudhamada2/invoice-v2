@@ -21,7 +21,7 @@ const App = () => {
       <main
         className={clsx(
           `w-full flex-1 relative`,
-          // isOpenForm ? "overflow-hidden" : null,
+          isOpenForm ? "overflow-hidden" : null,
         )}>
         {view === "invoices" && <InvoicePage />}
         {isOpenForm && <InvoiceForm />}
